@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body class="container">
+	<main>
+		<div class="row">
+			<form action="/insert-shop" method="GET">
+				
+				<h2>Please provide your Coffee Shop's name:</h2>
+				<input type="text" name="shop_name" placeholder="Shop Name">
+
+				<h2>Please provide your top five menu items:</h2>
+				
+				<input type="text" name="item_name1" placeholder="Item Number #1">
+				<input type="text" name="item_name2" placeholder="Item Number #2">
+				<input type="text" name="item_name3" placeholder="Item Number #3">
+				<input type="text" name="item_name4" placeholder="Item Number #4">
+				<input type="text" name="item_name5" placeholder="Item Number #5">
+				<input type="text" name="status" placeholder="Shop Name">
+							
+				<button>Submit</button>
+			</form>
+
+		</div>
+	</main>
+
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+	
+</body>
+</html>
