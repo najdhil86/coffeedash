@@ -6,7 +6,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: 'password',
+	password: 'tJvnjAtbMWtqW9HmmZBDGiZk',
 	database: 'coffeeShop_db'
 });
 
@@ -92,7 +92,7 @@ app.get('/query', function (req, res) {
 
 app.get('/insert-shop', function (req, res) {
 
-	let query = 'INSERT into shops(shop_name, item_name1, item_name2, item_name3, item_name4, item_name5, status) VALUES (?,?,?,?,?,?,?)';
+	let query = 'INSERT into shops(shop_name, item_name1, item_name2, item_name3, item_name4, item_name5, shop_status) VALUES (?,?,?,?,?,?,?)';
 
 	// req.query.shop_name
 	// req.query.item_name1
@@ -102,7 +102,7 @@ app.get('/insert-shop', function (req, res) {
 	// req.query.item_name5
 	// req.query.status
 
-	connection.query(query, [req.query.shop_name, req.query.item_name1, req.query.item_name2, req.query.item_name3, req.query.item_name4, req.query.item_name5, req.query.status], function (error, results, fields) {
+	connection.query(query, [req.query.shop_name, req.query.item_name1, req.query.item_name2, req.query.item_name3, req.query.item_name4, req.query.item_name5, req.query.shop_status], function (error, results, fields) {
 		res.redirect('/')
 
 	});

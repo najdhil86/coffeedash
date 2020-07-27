@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Friend Finder</title>
+</head>
+<body>
+
+	<div class="container">
+
+			<h1>Add your Shops</h1>
+			<hr>
+			<br>
+
+			<form action="#" method="POST" id="survey-form">
+				
+				<h4>What is your Store Name? (Required)</h4>
+				<input type="text" id="shop_name" name="shop_name" placeholder="Name">
+				
+			<br>
+			<br>
+			
+				<h3>Question 1</h3>
+				<h5>How many items are on your Shop Menu</h5>
+			
+				<div class="form-group">
+					
+						<label for="ques1">Select your Answer:</label>
+						<select class="form-control" name="ques1" id="ques1">
+							<option selected>Choose...</option> 
+							<option value="1">1</option>
+						  	<option value="2">2</option>
+						  	<option value="3">3</option>
+						  	<option value="4">4</option>
+						  	<option value="5">5</option>
+						  	<option value="6">6</option>
+						  	<option value="7">7</option>
+						  	<option value="8">8</option>
+						  	<option value="9">9</option>
+						  	<option value="10">10</option>
+						</select>
+					
+				</div>
+	
+				<h3>Question 2</h3>
+				<h5>Is Your Store Open Or Close?</h5>
+			
+				<div class="form-group">
+					
+						<label for="ques2">Select your Answer:</label>
+						<select class="form-control" id="ques2" name="ques2">
+						  <option selected>Choose...</option>  
+						  	<option value="1">Open</option>
+						  	<option value="2">Close</option>
+						  	
+				
+
+
+				<input type="submit" value="Submit" id="submit-button" class="btn btn-primary">
+
+			</form>
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="row"><a href="/friends">Friends List </a> |<a href="/friends.json">Github Repo</a></div>
+		</div>
+		  </footer>
+		
+
+	<script
+	  src="https://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+
+	$("#survey-form").on("submit", function(){
+		event.preventDefault()
+
+		var ques1 = $('#ques1').val()
+		var ques2 = $('#ques2').val()
+		
+
+
+		var userResults = {
+			name: $('#shop_name').val(),
+			ques1,
+			ques2,
+		}
+	
+		$.ajax({
+			url: '/insert-shop',
+			method: 'POST',
+			data: userResults
+		}).then(function(res){
+
+		
+
+		})
+		
+	})
+	</script>
+</body>
+</html>

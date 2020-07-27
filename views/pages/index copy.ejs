@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+			<% include ../partials/navigation %>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+			integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="../../assets/css/reset.css">
+</head>
+
+<body class="container">
+	<main>
+
+		<p>Sort By Shop Name</p>
+		<p>Sort By Shop Status</p>
+		<div class="row justify-content-md-center">
+			<% for(var i=0; i<data.length; i++) { %>
+
+
+			<div class="col-lg-4">
+				<div class="col-lg" id="contentbox">
+				<svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+					xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
+					aria-label="Placeholder: 140x140">
+					<title>Placeholder</title>
+					<rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
+						dy=".3em">140x140</text>
+				</svg>
+				<h2><%= data[i].shop_name %></h2>
+				<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras
+					mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+					condimentum nibh.</p>
+				<p><a class="btn btn-secondary" href="/shops/<%= data[i].id %>" role="button">Show Menu »</a></p>
+
+				<p><%= data[i].id %> | <%= data[i].shop_name %> | <%= data[i].status %> </p>
+				</div>
+			</div><!-- end of col-lg-4 20 -->
+			<div class="col-6 col-lg-1"></div>
+		</div>
+
+		<!-- <p><%= data[i].id %> | <%= data[i].shop_name %> | <%= data[i].status %>  </p> -->
+
+		<!-- <button data-id=<%= data[i].id %>>delete</button> -->
+		<% } %>
+		</div>
+
+		</div>
+
+
+	</main>
+
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+
+</body>
+
+</html>
