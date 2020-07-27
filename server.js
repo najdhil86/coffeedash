@@ -6,7 +6,7 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: 'tJvnjAtbMWtqW9HmmZBDGiZk',
+	password: 'password',
 	database: 'coffeeShop_db'
 });
 
@@ -25,13 +25,29 @@ app.get('/', function (req, res) {
 	});
 });
 
+app.get('/sort/name', function (req, res) {
+	connection.query('SELECT * FROM shops ORDER BY shop_name ASC', function (error, results, fields) {
+		if (error) res.send(error)
+		else res.render('pages/indexSortNames', {
+			data: results,
+		})
+	});
+});
+
+app.get('/sort/status', function (req, res) {
+	connection.query('SELECT * FROM shops ORDER BY shop_status ASC', function (error, results, fields) {
+		if (error) res.send(error)
+		else res.render('pages/indexSortStatus', {
+			data: results,
+		})
+	});
+});
+
+
 app.get('/shop_form', function(req, res) {
 	res.render('pages/shop_form');
 });
 
-// app.get('/shops_menu', function(req, res) {
-// 	res.render('pages/shops_menu');
-// });
 
 // show shop menu
 app.get('/shops/:id', function(req, res) {
@@ -49,46 +65,6 @@ app.get('/shops/:id', function(req, res) {
 		res.render('pages/shops_menu',o);
 	});
 });
-
-app.get('/shops/sort/:name', function (req, res) {
-
-	let query
-
-	if (req.params.name === 'name') {
-		query = 'SELECT * FROM shops ORDER BY shop_name ASC'
-	} else {
-		
-		query = 'SELECT * FROM shops ORDER BY shop_name DESC'
-	}
-
-	connection.query(query, function (error, results, fields) {
-
-		var o = {
-			shops: results
-		}
-
-		res.render('pages/index', o);
-	});
-});
-
-
-
-
-app.get('/query', function (req, res) {
-
-	let query = 'SELECT * FROM shops WHERE id = ?';
-	
-	connection.query(query, [req.query.id], function (error, results, fields) {
-		var o = {
-			shops: results
-		}
-
-		res.render('pages/shops_menu', o);
-	});
-
-})
-
-// http://localhost:3000/insert-shop?shop_name=test&item_name1=coke&item_name2=coke&item_name3=coke&item_name4=coke&item_name5=coke&status=open
 
 app.get('/insert-shop', function (req, res) {
 

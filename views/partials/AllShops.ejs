@@ -5,8 +5,8 @@
           <h1 class="jumbotron-heading">Album example</h1>
           <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
           <p>
-            <a href="#" class="btn btn-primary my-2">Sort By Name</a>
-            <a href="#" class="btn btn-secondary my-2">Sort By Status</a>
+            <a href="/sort/name" class="btn btn-primary my-2">Sort By Name</a>
+            <a href="/sort/status" class="btn btn-secondary my-2">Sort By Status</a>
           </p>
         </div>
 	  </section>
@@ -23,7 +23,7 @@
                   <p class="card-text"><strong><%= data[i].shop_name %></strong></p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Menu</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary text-muted"><a href="/shops/<%=data[i].id %>">Menu</a> </button>
                     </div>
                     <small class="text-muted"><%= data[i].shop_status %></small>
                   </div>
